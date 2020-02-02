@@ -1,0 +1,196 @@
+
+
+/* common */
+/* small screen */
+
+body {
+  position: relative;
+  min-height: 100%;
+  color: rgb(51, 51, 51);
+  background-color: rgb(245, 245, 245);
+  font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  font-size: 14px;
+}
+
+
+ul.pagination li a {
+    color: rgba(0, 0 ,0 , 0.54);
+}
+
+ul.pagination li.active a {
+    background-color: #DCE47E;
+    color: #FFF;
+    font-weight: bold;
+    cursor: default;
+}
+ul.pagination .disabled:hover a {
+    background: none;
+}
+
+.paginator {
+    text-align: center;
+}
+
+.paginator ul.pagination li {
+    float: none;
+    display: inline-block;
+}
+
+.paginator p {
+    text-align: right;
+    color: rgba(0, 0 ,0 , 0.54);
+}
+
+.actions.columns {
+    margin-top:1rem;
+    border-left: 5px solid #15848F;
+    padding-left: 15px;
+    padding: 32px 20px;
+}
+
+.actions.columns h3 {
+    color:#15848F;
+}
+
+
+
+
+a:link{
+  color: #999;
+  text-decoration: none;
+}
+a:visited{
+  color: #999;
+}
+a:hover{
+  text-decoration-line: none;
+  color: blue;
+}
+a:active{
+
+}
+a:focus{
+
+}
+
+
+ul{
+  list-style: none;
+}
+
+
+header{
+  display:  block;
+  width: 100%;
+  background: #eee;
+  margin: 0px auto;
+  padding: 8px 0px 0px;
+}
+
+  .header1{
+    width: 100%;
+    height: 40px;
+    font-size: 32px;
+    background: #ddd;
+    text-align: center;
+  }
+
+
+.contents{
+  display:  block;
+  /* width: 1024px; */
+  width: 100%;
+  background: #fff;
+  margin: 0px auto;
+  padding: 0 auto;
+}
+
+  .user-container1{
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    border-bottom: 1px solid #ddd;
+    padding-top: 12px;
+  }
+
+  .pass{
+    display:  block;
+    max-width: 80px;
+    /* height: 150px; */
+    word-break: break-all;
+  }
+
+  table{
+    margin: 0 auto;
+  }
+
+
+  .btn-return{
+    position: relative;
+    display: block;
+    width: 40%;
+    line-height: 36px;
+    text-align: center;
+    color: #fff;
+    background: #bbb;
+    margin: 16px auto;
+  }
+  .btn-return2{
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+
+
+footer{
+  display:  flex;
+  width: 100%;
+  margin: 0px auto;
+  padding: 8px 0px 0px;
+  background: #eee;
+}
+
+  .footer1{
+    display:  block;
+    margin: 16px auto;;
+  }
+
+    .footer1-1{
+      width: 100%;
+    }
+
+      .ul-footer1-1{
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+        .list-footer1-1{
+          margin-bottom: 10px;
+        }
+
+
+
+/* medium large screen */
+@media (min-width: 768px) {
+
+  header{
+    width: 100%;
+  }
+
+    .header1{
+      width: 100%;
+    }
+
+  .contents{
+    width: 100%;
+    padding-left: 16px;
+  }
+
+  footer{
+    width: 100%;
+  }
+
+
+
+}
