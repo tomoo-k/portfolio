@@ -23,7 +23,10 @@ class UsersController extends AppController
   {
     $this->viewBuilder()->setlayout('users_index_layout');
 
-    $users = $this->paginate($this->Users);
+    $users = $this->Users->find('all')
+                          ->where(['deleted' => 0 ]);
+
+    // $users = $this->paginate($indexusers)
     $this->set(compact('users'));
   }
 
@@ -45,18 +48,20 @@ class UsersController extends AppController
     $this->viewBuilder()->setlayout('users_add_layout');
 
     $user = $this->Users->newEntity(
-      ['nickname' => '',
-      'email' => '',
-      'password' => '',
-      'name' => '',
-      'kana' => '',
-      'birthday' => '',
-      'postal' => '',
-      'area' => '',
-      'city' => '',
-      'banchi' => '',
-      'building' => '',
-      'phone' => '']
+      [
+        'nickname' => '',
+        'email' => '',
+        'password' => '',
+        'name' => '',
+        'kana' => '',
+        'birthday' => '',
+        'postal' => '',
+        'area' => '',
+        'city' => '',
+        'banchi' => '',
+        'building' => '',
+        'phone' => ''
+      ]
     );
 
     if ($this->request->is('post')) {
@@ -92,8 +97,13 @@ class UsersController extends AppController
   {
       $this->redirect($this->Auth->logout());
       $this->request->allowMethod(['post', 'delete']);
-      $user = $this->Users->get($id);
-      if ($this->Users->delete($user)) {
+
+      $users = TableRegistry::getTableLocator()->get('Users');
+      $user = $users->find('all')->where(['id' => $id])->first();
+
+      $user->deleted = true;
+
+      if ($users->save($user)) {
           $this->Flash->success(__('The user has been deleted.'));
       } else {
           $this->Flash->error(__('The user could not be deleted. Please, try again.'));

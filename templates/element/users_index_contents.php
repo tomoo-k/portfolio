@@ -6,11 +6,11 @@
     <table cellpadding="4px" cellspacing="4px" >
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('email') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('password') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('created_at') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('updated_at') ?></th>
+                <th scope="col"><?= __('id') ?></th>
+                <th scope="col"><?= __('email') ?></th>
+                <th scope="col"><?= __('password') ?></th>
+                <th scope="col"><?= __('created_at') ?></th>
+                <th scope="col"><?= __('updated_at') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -32,16 +32,7 @@
         </tbody>
     </table>
 
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
 
-    </div>
 
   <div class="btn-return">
     <a href="<?= $this->Url->build( ['controller' => 'Sells','action' => 'index']); ?>">

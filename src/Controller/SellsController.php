@@ -162,31 +162,18 @@ class SellsController extends AppController
         ]
       );
 
-      $sell = $this->Sells->get($id);
 
-      $sell2 = $this->Sells->newEntity(
-        [
-          'id' => $id,
-          'user_id' => $sell->user_id,
-          'name' => $sell->name,
-          'detail' => $sell->detail,
-          'category_id' => $sell->category_id,
-          'brand' => $sell->brand,
-          'state_id' => $sell->state_id,
-          'postage_id' => $sell->postage_id,
-          'delivery_id' => $sell->delivery_id,
-          'prefecture_id' => $sell->prefecture_id,
-          'day_id' => $sell->day_id,
-          'price' => $sell->price,
-          'deleted'=> true
-        ]
-      );
+      $sells = TableRegistry::getTableLocator()->get('Sells');
+      $sell = $sells->find('all')->where(['id' => $id])->first();
+      $sell->deleted = true;
+
+
     } else {
       return $this->redirect(['controller' => 'Users','action' => 'login']);
     }
 
     if ($this->request->is('post')) {
-      if ($this->Sells->Buys->save($buy2) && $this->Sells->save($sell2)) {
+      if ($this->Sells->Buys->save($buy2) && $sells->save($sell)) {
           $this->Flash->success(__('The buy has been saved.'));
           return $this->redirect(['controller' => 'Sells','action' => 'index']);
       }
