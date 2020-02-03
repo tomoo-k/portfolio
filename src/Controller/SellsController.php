@@ -148,6 +148,8 @@ class SellsController extends AppController
     $this->viewBuilder()->setlayout('sells_buy_layout');
     $sell = $this->Sells->get($id);
     $this->set(compact('sell'));
+    $loginuser = $this->Auth->user();
+    $this->set(compact('loginuser'));
   }
 
   public function buy2($id = null)
